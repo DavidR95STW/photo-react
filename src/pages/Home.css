@@ -1,0 +1,145 @@
+/*... (mantener estilos existentes de carrusel) ...*/
+
+/* SECCIÓN PRINCIPAL DE CATEGORÍAS */
+.main-categories {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 15px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.item a {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.4s ease;
+  background-color: var(--color-principal);
+  color: var(--color-secundario);
+  text-align: center;
+}
+
+/* Efecto Hover Dinámico para Ítems */
+.item a:hover {
+  box-shadow: 0 12px 25px rgba(0, 48, 73, 0.3);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.item a:hover .img_item {
+  filter: brightness(1.05);
+}
+
+.img_item {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: filter 0.4s ease;
+}
+
+.item p {
+  padding: 15px 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* SECCIÓN PROMOCIONAL */
+.promo {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 350px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.promo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.promo-contenedor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-button {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  padding: 8px 30px; /* reducido */
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: var(--Caligrafia);
+  font-size: 1.8rem; /* tamaño más pequeño */
+  /* transiciones más suaves y cortas (incluye transform para desplazamiento sutil) */
+  transition: background-color 240ms ease, transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  border: 3px solid transparent;
+  position: absolute; /* posicionar respecto a .promo-contenedor */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 22px; /* pegar casi al borde inferior de la imagen */
+  z-index: 30; /* por encima del contenido */
+}
+
+/* Hover del Botón de Promoción */
+.promo-button:hover {
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  border-color: var(--color-principal);
+  /* Desplazamiento suave y sutil hacia arriba */
+  transform: translateX(-50%) translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(214,40,40,0.12);
+}
+
+/* Regla más específica para forzar el hover si existen interferencias de estilos globales */
+.promo .promo-contenedor .promo-button:hover {
+  background-color: var(--color-acento) !important;
+  color: var(--color-principal) !important;
+  border-color: var(--color-principal) !important;
+  /* Forzar desplazamiento suave */
+  transform: translateX(-50%) translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 8px 20px rgba(214,40,40,0.12) !important;
+}
+
+/* Logo de promoción (ejemplo en una esquina) */
+.logo_promo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.logo_promo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 768px) {
+  .promo-button {
+    font-size: 1.4rem;
+    padding: 6px 18px;
+    bottom: 14px;
+  }
+    .promo {
+        height: 250px;
+    }
+}

@@ -1,0 +1,72 @@
+/* Estilos extraídos de globales.css para .promVentas */
+.promVentas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  padding: 40px 5%;
+  margin-top: 30px;
+}
+
+.promVentas .estadisticas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.promVentas .caja1,
+.promVentas .caja2 {
+  font-size: 1.2em;
+}
+
+.promVentas h2 {
+  font-size: 1.5em;
+}
+
+.promVentas span {
+    font-size: 0.8em;
+    display: block;
+}
+
+.cajaPromo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.promVentas .cajaPromo p {
+    font-size: 1.1em;
+}
+
+.promVentas .cajaPromo .marca {
+  font-family: var(--Caligrafia);
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+.promVentas .form {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.promVentas .form input {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  min-width: 250px;
+}
+
+.promVentas .form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}

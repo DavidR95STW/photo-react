@@ -1,0 +1,33 @@
+<svg width="240" height="180" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .frame {
+      fill: none;
+      stroke: #D62828;
+      stroke-width: 6;
+      stroke-linejoin: bevel;
+    }
+
+    .text-main {
+      fill: #D62828;
+      font-family: 'Dancing Script', cursive;
+      font-size: 36px;
+      text-anchor: middle;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .animated {
+      animation: pulse 2s infinite ease-in-out;
+      transform-origin: center;
+    }
+  </style>
+
+  <!-- Marco decorativo -->
+  <rect class="frame animated" x="10" y="10" width="220" height="160" rx="20" ry="20"></rect>
+
+  <!-- Texto centrado -->
+  <text x="120" y="105" class="text-main">30% OFF</text>
+</svg>

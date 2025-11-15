@@ -1,0 +1,104 @@
+.carrusel {
+  position: relative;
+  width: 100%;
+  /* Larger image area to occupy most of the blue zone */
+  height: min(80vh, 920px);
+  /* allow the segments to be visible below the image area */
+  overflow: visible;
+  background: var(--color-secundario);
+}
+.carrusel-inner {
+  display: flex;
+  transition: transform 480ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  height: 100%;
+}
+.carrusel-item {
+  min-width: 100%;
+  position: relative;
+  height: 100%;
+}
+.carrusel-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* ensure uniform size and fill the carousel area */
+  object-position: center center; /* center the image */
+}
+
+.carrusel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.32); /* darken each image */
+  pointer-events: none;
+}
+.carrusel-caption {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 70px; /* slightly lower so the CTA sits closer to the image edge */
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+.carrusel-caption h2 { font-size: 2rem; margin: 0 0 6px; font-family: var(--Caligrafia); }
+.carrusel-cta {
+  pointer-events: auto;
+  display: inline-block;
+  background: var(--color-acento);
+  color: #fff;
+  padding: 8px 12px; /* smaller button */
+  border-radius: 22px; /* pill shape */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 10px; /* move it a bit lower inside the caption */
+  box-shadow: 0 6px 18px rgba(214,40,40,0.12);
+}
+
+/* More specific rule to avoid interference from other global styles */
+.carrusel .carrusel-caption .carrusel-cta {
+  padding: 6px 10px;
+  font-size: 0.92rem;
+  border-radius: 20px;
+  margin-top: 8px;
+  display: inline-block;
+  z-index: 60; /* ensure it sits above overlays */
+  position: relative;
+  transform: translateY(6px); /* nudge down to sit closer to the segmented line */
+  box-shadow: 0 8px 22px rgba(214,40,40,0.14);
+}
+
+/* If specificity problems persist, this rule targets the button inside the current component only */
+.carrusel-item .carrusel-caption .carrusel-cta { pointer-events: auto; }
+.carrusel-controls { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: space-between; padding: 0 18px; pointer-events: auto; }
+.carrusel-controls button { background: rgba(0,0,0,0.35); border: 0; color: #fff; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 20px; }
+.carrusel-segments {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 12px; /* placed just below the image area */
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+}
+.carrusel-segments .segment {
+  flex: 1 1 0;
+  height: 6px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  transition: background 180ms ease, transform 120ms ease;
+}
+.carrusel-segments .segment:hover { transform: translateY(-2px); }
+.carrusel-segments .segment.active { background: var(--color-acento); box-shadow: 0 6px 18px rgba(214,40,40,0.18); }
+
+@media (max-width: 768px) {
+  .carrusel-item img { height: 320px; }
+  .carrusel-caption h2 { font-size: 1.4rem; }
+  .carrusel-caption { bottom: 18px; }
+  .carrusel-cta { padding: 6px 10px; font-size: 0.9rem; margin-top: 6px; border-radius: 16px; }
+}
