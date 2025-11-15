@@ -1,85 +1,336 @@
 /* Estilos para el Encabezado */
-header {
-  background-color: var(--color-secundario); /* Azul oscuro */
+.site-header {
+  --pad-x: 5%;
+  background-color: var(--color-secundario, #0b3d91);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  justify-content: space-between;
+  padding: 14px var(--pad-x);
   position: sticky;
   top: 0;
   z-index: 500;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
 }
 
-header .logo {
-  font-family: var(--Caligrafia);
-  font-size: 2.5rem;
-  color: var(--color-principal); /* Blanco */
+.logo {
+  font-family: var(--Caligrafia, 'Poppins', sans-serif);
+  font-size: var(--header-logo-size, 1.85rem);
+  color: var(--color-principal, #ffffff);
   font-weight: 700;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  letter-spacing: 0.2px;
 }
 
-header .logo:hover {
-  color: var(--color-acento); /* Rojo al pasar el ratón */
+.logo:hover {
+  color: var(--color-acento, #ff6b6b);
 }
 
-/* Navegación */
-.nav-menu ul {
+/* Animación y estilos del buscador */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 0;
+}
+
+.search input {
+  width: 140px;
+  max-width: 32vw;
+  background: rgba(255,255,255,0.04);
+  color: var(--color-principal, #fff);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: width 260ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms ease, background 200ms ease;
+  outline: none;
+}
+
+.search input::placeholder { color: rgba(255,255,255,0.7); }
+
+.search input:focus {
+  width: 260px;
+  background: rgba(255,255,255,0.06);
+  box-shadow: var(--sombra-suave);
+}
+
+.search button {
+  background: transparent;
+  border: none;
+  color: var(--color-principal, #fff);
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.search button:hover { transform: scale(1.05); color: var(--color-acento); }
+
+/* Icono de menú hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: 1.6rem;
+  color: var(--color-principal, #fff);
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Navegación principal */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-menu a {
-  color: var(--color-principal);
-  font-size: 1.1rem;
+.nav a {
+  color: var(--color-principal, #fff);
+  font-size: var(--nav-font-size, 1rem);
   font-weight: 600;
-  padding: 5px 10px;
+  padding: 6px 8px;
   position: relative;
-  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.12s ease;
 }
 
-/* Efecto de línea inferior elegante en hover */
-.nav-menu a::after {
+.nav a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--color-acento);
-  transition: width 0.3s ease, left 0.3s ease;
+  background-color: var(--color-acento, #ff6b6b);
+  transition: width 0.25s ease, left 0.25s ease;
 }
 
-.nav-menu a:hover {
-  color: var(--color-acento);
+.nav a:hover {
+  color: var(--color-acento, #ff6b6b);
   transform: translateY(-2px);
 }
 
-.nav-menu a:hover::after {
+.nav a:hover::after {
   width: 100%;
   left: 0;
 }
 
-/* Iconos de Usuario */
-.user-icons {
-  display: flex;
-  gap: 15px;
+/* Icon styling inside acciones */
+.acciones { gap: 10px; display: flex; align-items: center; }
+.acciones .icon { color: inherit; width: var(--icon-size, 20px); height: var(--icon-size, 20px); display: inline-block; }
+.acciones .icon-search { width: calc(var(--icon-size, 20px) - 2px); height: calc(var(--icon-size, 20px) - 2px); }
+.acciones .icon-user { width: var(--icon-size, 20px); height: var(--icon-size, 20px); }
+.acciones .icon-cart { width: var(--icon-size, 20px); height: var(--icon-size, 20px); }
+.acciones .login-btn, .acciones .carrito { display: inline-flex; align-items: center; justify-content: center; padding: 6px; }
+.acciones .login-btn { border-radius: 50%; }
+
+/* Acentuar sombra en carrito para que resalte sobre el header */
+.acciones .carrito {
+  /* Hacer el botón compacto (círculo) para eliminar área blanca extra */
+  background: var(--color-principal, #ffffff);
+  color: var(--color-secundario, #003049);
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.10);
+  position: relative;
 }
 
-.user-icons button {
+/* Force cart svg to use the button's color and be visible on white background */
+.acciones .carrito svg {
+  color: var(--color-secundario, #003049) !important;
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+/* Badge para el carrito (aplica en todos los tamaños) */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: inline-flex;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  background: var(--color-acento, #D62828);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+/* Forzar visibilidad de SVGs y hover (específicos y con mayor prioridad) */
+.acciones .search button svg,
+.acciones .login-btn svg,
+.acciones .carrito svg {
+  stroke: currentColor !important;
+  fill: none !important;
+  color: inherit !important;
+  pointer-events: none; /* let the button receive the hover */
+}
+
+/* for small circles inside cart that should be filled */
+.acciones .carrito svg circle { fill: currentColor !important; }
+
+/* Hover: set color and force stroke/fill */
+.acciones .search button:hover,
+.acciones .login-btn:hover,
+.acciones .carrito:hover {
+  color: var(--color-acento, #D62828) !important;
+}
+.acciones .search button:hover svg,
+.acciones .login-btn:hover svg,
+.acciones .carrito:hover svg {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+
+/* Overlay búsqueda móvil (estilos globales, usados sólo si se abre) */
+.mobile-search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+.mobile-search-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: min(92%, 520px);
+  background: var(--color-principal, #fff);
+  padding: 10px;
+  border-radius: 10px;
+}
+.mobile-search-form input { flex: 1; padding: 10px 12px; font-size: 1rem; border-radius: 6px; border: 1px solid #ddd; }
+.mobile-search-form button { padding: 8px 12px; border: none; background: var(--color-acento); color: #fff; border-radius: 6px; cursor: pointer; }
+.mobile-search-form .close-mobile-search { background: transparent; color: #555; font-size: 1.4rem; padding: 0 6px; }
+
+
+/* Animaciones para apertura del menú móvil */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav.open ul li {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.nav.open ul li {
+  animation: slideDown 240ms ease forwards;
+}
+
+.nav.open ul li:nth-child(1) { animation-delay: 0.02s; }
+.nav.open ul li:nth-child(2) { animation-delay: 0.06s; }
+.nav.open ul li:nth-child(3) { animation-delay: 0.10s; }
+.nav.open ul li:nth-child(4) { animation-delay: 0.14s; }
+.nav.open ul li:nth-child(5) { animation-delay: 0.18s; }
+
+/* Acciones: login / carrito */
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.acciones .login-btn {
   background: transparent;
   border: none;
-  color: var(--color-principal);
-  font-size: 1.3rem;
+  color: var(--color-principal, #fff);
+  font-size: 1.15rem;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.user-icons button:hover {
-  color: var(--color-acento);
-  transform: scale(1.1);
+.acciones .login-btn:hover,
+.acciones .carrito:hover {
+  color: var(--color-acento, #D62828);
+  transform: translateY(-2px);
 }
 
-/* Responsive (Asumiendo que tienes un menú hamburguesa) */
-/* Agrega aquí los estilos para el menú móvil */
+/* Hover uniforme para buscador, perfil y carrito */
+.acciones .search button:hover,
+.acciones .login-btn:hover,
+.acciones .carrito:hover {
+  color: var(--color-acento, #D62828);
+  transform: translateY(-2px);
+}
+
+/* Asegurar que los SVGs dentro de acciones se pinten con currentColor y se centren */
+.acciones svg { display: block; }
+.acciones .carrito svg path { stroke: currentColor; }
+.acciones .carrito svg circle { fill: currentColor; }
+.acciones .login-btn svg path { stroke: currentColor; }
+.acciones .login-btn svg circle { fill: none; }
+.acciones .search svg path, .acciones .search svg circle { stroke: currentColor; fill: none; }
+
+/* Responsive: menú colapsable */
+@media (max-width: 768px) {
+  .menu-icon { display: block; }
+
+  /* Ocultar navegación por defecto en móvil */
+  .nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--color-secundario, #0b3d91);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.28s ease;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  /* En móvil mostramos sólo el icono de búsqueda; el input se oculta */
+  .search input { display: none; width: 0; padding: 0; border: none; }
+  .search { margin-left: 8px; }
+
+  /* En móvil mostramos sólo el icono de búsqueda; el input se oculta */
+  .search input { display: none; width: 0; padding: 0; border: none; }
+  .search { margin-left: 8px; }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav li { width: 100%; }
+
+  .nav a {
+    display: block;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  /* Mostrar menú cuando se agrega la clase .open desde React */
+  .nav.open {
+    max-height: 420px;
+  }
+
+  /* Mover acciones dentro del header pero con espacio */
+  .acciones { gap: 8px; }
+}
+
+/* Small polish */
+@media (min-width: 1200px) {
+  .logo { font-size: 1.9rem; }
+}

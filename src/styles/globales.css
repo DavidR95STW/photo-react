@@ -2,6 +2,8 @@
    globales.css (corregido)
    ========================= */
 
+/* Import Google Fonts: Inter (ejecutiva), Nunito, Dancing Script, Alegreya Sans */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Alegreya+Sans:wght@400;700&family=Dancing+Script&family=Nunito:wght@300;400;700&display=swap');
 /* COLORES / VARIABLES */
 :root {
   --color-principal: #ffffff;
@@ -13,9 +15,15 @@
   /* Texto en fondos oscuros */
   --color-borde: #000000;
   --titulo-size: 3.8rem;
+  --titulo-size: 3.6rem;
   --Caligrafia: "Dancing Script", cursive;
   --fuente: "Nunito", sans-serif;
-  --fuente1: "Alegreya Sans";
+  --fuente1: "Alegreya Sans", sans-serif;
+
+  /* Tamaños generales */
+  --header-logo-size: 1.85rem;
+  --nav-font-size: 1rem;
+  --icon-size: 20px;
 
   /* === Nuevas Variables de Sombra === */
   --sombra-suave: 0 4px 12px rgba(0, 48, 73, 0.15); /* Sombra estándar para cajas */

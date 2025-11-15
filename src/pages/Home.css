@@ -81,14 +81,20 @@
 .promo-button {
   background-color: var(--color-secundario);
   color: var(--color-texto);
-  padding: 10px 40px;
+  padding: 8px 30px; /* reducido */
   text-decoration: none;
-  border-radius: 50px;
+  border-radius: 40px;
   font-family: var(--Caligrafia);
-  font-size: 2.5rem;
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  font-size: 1.8rem; /* tamaño más pequeño */
+  /* transiciones más suaves y cortas (incluye transform para desplazamiento sutil) */
+  transition: background-color 240ms ease, transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   border: 3px solid transparent;
+  position: absolute; /* posicionar respecto a .promo-contenedor */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 22px; /* pegar casi al borde inferior de la imagen */
+  z-index: 30; /* por encima del contenido */
 }
 
 /* Hover del Botón de Promoción */
@@ -96,8 +102,19 @@
   background-color: var(--color-acento);
   color: var(--color-principal);
   border-color: var(--color-principal);
-  transform: scale(1.1) rotate(-1deg);
-  box-shadow: var(--sombra-acento);
+  /* Desplazamiento suave y sutil hacia arriba */
+  transform: translateX(-50%) translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(214,40,40,0.12);
+}
+
+/* Regla más específica para forzar el hover si existen interferencias de estilos globales */
+.promo .promo-contenedor .promo-button:hover {
+  background-color: var(--color-acento) !important;
+  color: var(--color-principal) !important;
+  border-color: var(--color-principal) !important;
+  /* Forzar desplazamiento suave */
+  transform: translateX(-50%) translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 8px 20px rgba(214,40,40,0.12) !important;
 }
 
 /* Logo de promoción (ejemplo en una esquina) */
@@ -117,10 +134,11 @@
 }
 
 @media (max-width: 768px) {
-    .promo-button {
-        font-size: 2rem;
-        padding: 8px 30px;
-    }
+  .promo-button {
+    font-size: 1.4rem;
+    padding: 6px 18px;
+    bottom: 14px;
+  }
     .promo {
         height: 250px;
     }
