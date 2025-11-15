@@ -1,0 +1,4 @@
+/* Estilos específicos de Layout.css, si fueran necesarios */
+main {
+  min-height: 80vh; /* Asegura que el footer esté abajo */
+}

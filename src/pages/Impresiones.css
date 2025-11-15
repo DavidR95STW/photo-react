@@ -1,0 +1,155 @@
+/* Layout General */
+.herramienta-impresion {
+    max-width: 1200px;
+    margin: 16px auto 32px;
+    padding: 0 16px;
+    display: flex;
+    gap: 32px;
+    align-items: stretch;
+    flex-wrap: wrap; /* Permite que se apilen en móvil */
+}
+
+.previa,
+.panel-opciones {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%; /* En escritorio, ocupan la mitad */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Previa */
+.previa {
+    align-items: center;
+    gap: 12px;
+    justify-content: center
+}
+
+.lienzo {
+    width: min(520px, 100%);
+    aspect-ratio: 3/4;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .18), 0 3px 10px rgba(0, 0, 0, .08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen-previa {
+    max-width: 90%;
+    max-height: 90%;
+    /* Estilos de transformaciones de tamaño se aplican en el JSX */
+    transition: transform .3s ease; 
+}
+
+#imagen-previa img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Panel de Opciones */
+.panel-opciones {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.panel-opciones h2 {
+    margin-bottom: 25px;
+    color: var(--color-secundario);
+    font-size: 1.8rem;
+    font-family: var(--fuente1);
+}
+
+.opcion {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.opcion h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--color-secundario);
+}
+
+.controles {
+    display: flex;
+    gap: 10px;
+}
+
+.controles button {
+    padding: 10px 15px;
+    border: 2px solid var(--color-secundario);
+    background: #fff;
+    color: var(--color-secundario);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.controles button.active {
+    background-color: var(--color-acento);
+    color: var(--color-texto);
+    border-color: var(--color-acento);
+}
+
+/* Subida de Archivo */
+#upload-image {
+    padding: 10px 0;
+}
+
+/* Resumen y Botón */
+.resumen {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--color-acento);
+    text-align: right;
+}
+
+.resumen p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-secundario);
+}
+
+.btn {
+    background: var(--color-acento);
+    color: var(--color-texto);
+    border: none;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .2s ease, opacity .2s ease;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    opacity: 0.95;
+    transform: scale(1.01);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .herramienta-impresion {
+        flex-direction: column;
+    }
+    .previa, .panel-opciones {
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .previa {
+      height: 400px;
+    }
+    .lienzo {
+        width: 100%;
+    }
+}
