@@ -5,6 +5,10 @@ import './Header.css';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onResize = () => {
@@ -14,11 +18,15 @@ const Header = () => {
     return () => window.removeEventListener('resize', onResize);
   }, [open]);
 
-  const toggleMenu = () => setOpen(prev => !prev);
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  useEffect(() => {
+    const loggedUser = localStorage.getItem("loggedUser");
+    if (loggedUser) {
+      const parsedUser = JSON.parse(loggedUser);
+      setTimeout(() => setUser(parsedUser), 0);
+    }
+  }, []);
 
-  const [search, setSearch] = useState('');
-  const navigate = useNavigate();
+  const toggleMenu = () => setOpen(prev => !prev);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -34,8 +42,6 @@ const Header = () => {
     <header className="site-header">
       {/* href="./index.html" -> Link to="/" */}
       <Link className="logo" to="/">Photo of your life</Link>
-
-      {/* espacio reservado para buscador (ahora agrupado con acciones) */}
 
       {/* Menú hamburguesa responsivo (botón controlado) */}
       <button
@@ -97,6 +103,15 @@ const Header = () => {
             <path d="M4 20c0-3.2 3.6-5.5 8-5.5s8 2.3 8 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </label>
+
+        {user ? (
+          <div className="user-info">
+            <span className="user-initials">{user.iniciales}</span>
+            <Link to="/logout" className="nav-link">Cerrar sesión</Link>
+          </div>
+        ) : (
+          <Link to="/login" className="nav-link">Iniciar sesión</Link>
+        )}
 
         <button className="carrito" aria-label="Carrito">
           <svg className="icon icon-cart" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

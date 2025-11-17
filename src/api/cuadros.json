@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "Cuadro A",
+    "descripcion": "Marco de madera clásico con acabado natural y detalles sutiles.",
+    "precio": 40000,
+    "imagen": "/src/views/img/Cuadros/CuadroA.png"
+  },
+  {
+    "nombre": "Cuadro Madera Café",
+    "descripcion": "Marco de madera color café oscuro, estilo rústico y elegante.",
+    "precio": 72000,
+    "imagen": "/src/views/img/Cuadros/CuadroMaderaCafe.png"
+  },
+  {
+    "nombre": "Cuadro Madera Delgado",
+    "descripcion": "Marco de madera delgado, ideal para ambientes modernos y minimalistas.",
+    "precio": 35000,
+    "imagen": "/src/views/img/Cuadros/CuadroMaderaDelgado.png"
+  },
+  {
+    "nombre": "Cuadro Madera Negro",
+    "descripcion": "Marco de madera negro, perfecto para resaltar fotografías artísticas.",
+    "precio": 65000,
+    "imagen": "/src/views/img/Cuadros/CuadroMaderaNegro.png"
+  },
+  {
+    "nombre": "Cuadro Moderno",
+    "descripcion": "Marco moderno con líneas limpias y acabado mate.",
+    "precio": 60000,
+    "imagen": "/src/views/img/Cuadros/CuadroModerno.png"
+  },
+  {
+    "nombre": "Cuadro N",
+    "descripcion": "Marco robusto con diseño contemporáneo y elegante.",
+    "precio": 95000,
+    "imagen": "/src/views/img/Cuadros/CuadroN.png"
+  },
+  {
+    "nombre": "Cuadro Na",
+    "descripcion": "Marco de madera natural, acabado suave y tonos cálidos.",
+    "precio": 85000,
+    "imagen": "/src/views/img/Cuadros/CuadroNa.png"
+  },
+  {
+    "nombre": "Cuadro negro Gotic",
+    "descripcion": "Marco negro con detalles góticos, ideal para arte clásico.",
+    "precio": 120000,
+    "imagen": "/src/views/img/Cuadros/CuadronegroGotic.png"
+  },
+  {
+    "nombre": "Cuadro RN",
+    "descripcion": "Marco de madera con acabado natural y diseño sencillo.",
+    "precio": 57000,
+    "imagen": "/src/views/img/Cuadros/CuadroRN.png"
+  },
+  {
+    "nombre": "Cuadro V",
+    "descripcion": "Marco vintage con acabado envejecido y detalles únicos.",
+    "precio": 80000,
+    "imagen": "/src/views/img/Cuadros/CuadroV.png"
+  },
+  {
+    "nombre": "Cuadro Ve",
+    "descripcion": "Marco verde oliva, estilo retro y elegante.",
+    "precio": 69000,
+    "imagen": "/src/views/img/Cuadros/cuadroVe.png"
+  },
+  {
+    "nombre": "Cuadro Moderno 1",
+    "descripcion": "Marco moderno con diseño innovador y materiales de alta calidad.",
+    "precio": 78000,
+    "imagen": "/src/views/img/Cuadros/CudroModerno1.png"
+  },
+  {
+    "nombre": "Marco Madera",
+    "descripcion": "Marco de madera tradicional, perfecto para cualquier decoración.",
+    "precio": 57000,
+    "imagen": "/src/views/img/Cuadros/MarcoMadera.png"
+  },
+  {
+    "nombre": "Marco Negro",
+    "descripcion": "Marco negro mate, ideal para fotografías modernas.",
+    "precio": 35000,
+    "imagen": "/src/views/img/Cuadros/MarcoNegro.png"
+  },
+  {
+    "nombre": "Marco Relieve",
+    "descripcion": "Marco con relieve decorativo, acabado elegante y sofisticado.",
+    "precio": 110000,
+    "imagen": "/src/views/img/Cuadros/MarcoRelieve.png"
+  }
+]

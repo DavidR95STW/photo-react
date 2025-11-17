@@ -1,0 +1,74 @@
+/* Card: apariencia tipo tarjeta con imagen arriba y panel inferior oscuro */
+.card-producto {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  margin: 12px;
+  transition: transform 220ms cubic-bezier(.2,.9,.25,1), box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.card-producto:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.card-img-container {
+  width: 100%;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg,#f7f7f8 0%, #ffffff 100%);
+  overflow: hidden;
+  padding: 12px; /* espacio para que la imagen no toque los bordes */
+  box-sizing: border-box;
+}
+
+.card-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* mostrar la imagen completa sin recortar */
+  display: block;
+}
+
+/* Panel inferior: oscuro y centrado (como en el mock) */
+.card-info {
+  background: #07394a; /* color oscuro similar al mock */
+  color: #fff;
+  padding: 20px 16px;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+}
+
+.card-precio {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .card-img-container { height: 300px; }
+}
+
+@media (max-width: 640px) {
+  .card-producto { max-width: 100%; }
+  .card-img-container { height: 240px; }
+}

@@ -1,28 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PromoVentas from '../components/PromoVentas.jsx';
+import Card from '../components/Card';
+import CodigoPromocion from '../components/CodigoPromocion.jsx';
+import productosData from '../api/cuadros.json';
 import './Cuadros.css';
 
 const Cuadros = () => {
+  const productos = productosData || [];
+
   return (
     <>
       <main className="productos-page">
         <h1 className="titulo-area titulo">Cuadros Decorativos</h1>
-        
         <section className="galeria-productos">
-          {/* Ejemplo de producto. Reemplazar <a> con Link */}
-          <Link className="producto" to="/producto/cuadro-1">
-            <img src="../views/img/Cuadros/cuadroVe.png" alt="Nombre producto" />
-            <div className="info">
-              <p><strong>Nombre producto</strong><br/>Descripción</p>
-              <span>$10.000</span>
-            </div>
-          </Link>
-          {/* ... más productos ... */}
+          {productos.map((prod, idx) => (
+            <Card
+              key={idx}
+              nombre={prod.nombre}
+              descripcion={prod.descripcion}
+              precio={prod.precio}
+              imagen={prod.imagen}
+            />
+          ))}
         </section>
       </main>
-
-      <PromoVentas />
+      <CodigoPromocion />
     </>
   );
 };

@@ -1,0 +1,11 @@
+[
+  {"nombre": "Portarretrato Clásico Roble", "descripcion": "Portarretrato de madera robusta, acabado roble natural, ideal para fotos familiares.", "precio": 32000, "imagen": "/src/views/img/PortaRetrato/pot1.jpg"},
+  {"nombre": "Portarretrato Moderno Blanco", "descripcion": "Diseño minimalista en blanco, perfecto para ambientes modernos y luminosos.", "precio": 28000, "imagen": "/src/views/img/PortaRetrato/pot2.png"},
+  {"nombre": "Portarretrato Vintage Oscuro", "descripcion": "Estilo vintage con madera oscura y detalles clásicos.", "precio": 34000, "imagen": "/src/views/img/PortaRetrato/pot3.jpg"},
+  {"nombre": "Portarretrato Café Rústico", "descripcion": "Madera rústica color café, acabado artesanal y cálido.", "precio": 30000, "imagen": "/src/views/img/PortaRetrato/pot4.jpg"},
+  {"nombre": "Portarretrato Elegante Dorado", "descripcion": "Marco dorado con detalles ornamentales, ideal para retratos formales.", "precio": 40000, "imagen": "/src/views/img/PortaRetrato/pot5.jpg"},
+  {"nombre": "Portarretrato Minimal Negro", "descripcion": "Marco negro mate, líneas simples y modernas para cualquier decoración.", "precio": 25000, "imagen": "/src/views/img/PortaRetrato/pot6.jpg"},
+  {"nombre": "Portarretrato Natural Claro", "descripcion": "Madera clara, diseño escandinavo y versátil para cualquier espacio.", "precio": 29000, "imagen": "/src/views/img/PortaRetrato/pot7.jpg"},
+  {"nombre": "Portarretrato Azul Pastel", "descripcion": "Tonos azul pastel, ideal para habitaciones infantiles o decoraciones frescas.", "precio": 27000, "imagen": "/src/views/img/PortaRetrato/pot8.jpg"},
+  {"nombre": "Portarretrato Artístico Turquesa", "descripcion": "Diseño moderno en color turquesa, perfecto para destacar fotografías artísticas.", "precio": 37000, "imagen": "/src/views/img/PortaRetrato/pot9.jpg"}
+]
