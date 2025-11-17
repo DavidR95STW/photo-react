@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PromoVentas from '../components/PromoVentas.jsx';
+import CodigoPromocion from '../components/CodigoPromocion.jsx';
 import './Impresiones.css'; // Contiene imp.css
 
 const Impresiones = () => {
@@ -84,7 +84,7 @@ const Impresiones = () => {
         </section>
       </div>
       
-      <PromoVentas />
+      <CodigoPromocion />
     </>
   );
 };

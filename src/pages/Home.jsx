@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PromoVentas from '../components/PromoVentas.jsx'; // Aunque no está en index.html, lo incluimos
 import Carrusel from '../components/Carrusel.jsx';
 
 import bannerMarcos from '../views/img/bannerMarcos.png';

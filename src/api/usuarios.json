@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "email": "juan.perez@example.com",
+    "nombres": "Juan",
+    "apellidos": "Perez",
+    "direccion": "Calle Falsa 123",
+    "telefono": "1234567890",
+    "password": "password123",
+    "iniciales": "JP"
+  },
+  {
+    "id": 2,
+    "email": "maria.gomez@example.com",
+    "nombres": "Maria",
+    "apellidos": "Gomez",
+    "direccion": "Avenida Siempre Viva 456",
+    "telefono": "0987654321",
+    "password": "password456",
+    "iniciales": "MG"
+  },
+  {
+    "id": 3,
+    "email": "carlos.rodriguez@example.com",
+    "nombres": "Carlos",
+    "apellidos": "Rodriguez",
+    "direccion": "Boulevard Central 789",
+    "telefono": "5555555555",
+    "password": "password789",
+    "iniciales": "CR"
+  },
+  {
+    "id": 4,
+    "email": "ana.lopez@example.com",
+    "nombres": "Ana",
+    "apellidos": "Lopez",
+    "direccion": "Plaza Mayor 101",
+    "telefono": "7777777777",
+    "password": "password101",
+    "iniciales": "AL"
+  }
+]

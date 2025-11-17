@@ -1,0 +1,102 @@
+.codigo-promocion-bg {
+  width: 100%;
+  min-height: 360px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.codigo-promocion-video-bg {
+  position: absolute;
+  display: block;
+  top: 0; /* Ajusta el video para que no se corte arriba */
+  bottom: -50%; /* Corta el video en la parte inferior */
+  left: 0;
+  width: 100%;
+  height: auto; /* Ajusta la altura para evitar cortes */
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.codigo-promocion-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.codigo-promocion-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center; /* Centra el texto */
+  max-width: 600px;
+  width: 100%;
+  margin-left: 18vw; /* Mueve el bloque más a la derecha */
+}
+
+.codigo-promocion-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.codigo-promocion-desc {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.codigo-promocion-line {
+  font-family: 'Pacifico', cursive, 'Arial', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #fff;
+}
+
+.codigo-promocion-brand {
+  font-family: 'Pacifico', cursive, 'Arial', sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.codigo-promocion-form {
+  display: flex;
+  justify-content: center; /* Centra el formulario */
+  gap: 0.5rem;
+}
+
+.codigo-promocion-input {
+  padding: 0.6rem 1rem;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  font-size: 1rem;
+  width: 220px;
+}
+
+.codigo-promocion-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  background: #d32f2f;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.codigo-promocion-btn:hover {
+  background: #b71c1c;
+}
