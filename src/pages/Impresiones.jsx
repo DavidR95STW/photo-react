@@ -1,43 +1,38 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CodigoPromocion from '../components/CodigoPromocion.jsx';
+import marcosData from '../api/marcos.json';
 import './Impresiones.css';
 import './ImpresionesExtras.css';
 
 const Impresiones = () => {
   const [size, setSize] = useState('M');
-  const [frameType, setFrameType] = useState('clasico');
+  const [selectedFrame, setSelectedFrame] = useState(marcosData[0]);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [price, setPrice] = useState(25000);
-
-  const frameOptions = {
-    clasico: { name: 'Marco Clásico', price: 8000, description: 'Marco de madera clásico con acabado natural' },
-    moderno: { name: 'Marco Moderno', price: 12000, description: 'Marco minimalista con diseño contemporáneo' },
-    vintage: { name: 'Marco Vintage', price: 15000, description: 'Marco decorativo con detalles ornamentales' },
-    sin_marco: { name: 'Sin Marco', price: 0, description: 'Impresión sin marco decorativo' }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const sizeOptions = {
-    S: { name: 'Pequeño (20x25cm)', basePrice: 15000 },
-    M: { name: 'Mediano (30x40cm)', basePrice: 25000 },
-    L: { name: 'Grande (50x70cm)', basePrice: 40000 }
+    S: { name: 'S', label: '20x25cm', basePrice: 15000 },
+    M: { name: 'M', label: '30x40cm', basePrice: 25000 },
+    L: { name: 'L', label: '50x70cm', basePrice: 40000 }
   };
 
-  const calculatePrice = (selectedSize, selectedFrame) => {
+  const calculatePrice = (selectedSize, frameData) => {
     const basePrice = sizeOptions[selectedSize].basePrice;
-    const framePrice = frameOptions[selectedFrame].price;
+    const framePrice = frameData.price;
     return basePrice + framePrice;
   };
 
   const handleSizeChange = (newSize) => {
     setSize(newSize);
-    setPrice(calculatePrice(newSize, frameType));
+    setPrice(calculatePrice(newSize, selectedFrame));
   };
 
-  const handleFrameChange = (newFrame) => {
-    setFrameType(newFrame);
-    setPrice(calculatePrice(size, newFrame));
+  const handleFrameChange = (frameData) => {
+    setSelectedFrame(frameData);
+    setPrice(calculatePrice(size, frameData));
+    setIsMenuOpen(false);
   };
 
   const handleImageUpload = (e) => {
@@ -52,128 +47,122 @@ const Impresiones = () => {
   };
 
   const getFrameStyle = () => {
-    if (frameType === 'sin_marco') return {};
-    
-    const frameStyles = {
-      clasico: {
-        border: '12px solid #8B4513',
-        borderRadius: '8px',
-        boxShadow: 'inset 0 0 10px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)'
-      },
-      moderno: {
-        border: '8px solid #2C3E50',
-        borderRadius: '4px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.15)'
-      },
-      vintage: {
-        border: '15px solid #D4AF37',
-        borderRadius: '12px',
-        borderImage: 'linear-gradient(45deg, #D4AF37, #B8860B) 1',
-        boxShadow: 'inset 0 0 15px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.3)'
-      }
-    };
-    return frameStyles[frameType];
+    if (selectedFrame.id === 0) return {};
+    return selectedFrame.style;
   };
 
   return (
     <>
-      <Header />
-      <div className="productos-page">
-        <h1 className="titulo-area titulo">Impresiones Personalizadas</h1>
-
-        <section className="herramienta-impresion">
-          {/* Columna de Previsualización */}
-          <div className="previa">
-            <div className="lienzo">
-              <div id="imagen-previa" data-tamano={size}>
+      <div className="impresiones-container">
+        <h1 className="page-title">Personaliza tú Impresión</h1>
+        
+        <div className="main-content">
+          {/* Preview */}
+          <div className="preview-section">
+            <div className="image-upload-area">
+              <input 
+                type="file" 
+                id="upload" 
+                accept="image/*" 
+                onChange={handleImageUpload}
+                style={{display: 'none'}}
+              />
+              {uploadedImage ? (
                 <img 
-                  src={uploadedImage || "https://placehold.co/300x400/e0e0e0/555555?text=Sube+tu+Foto"} 
-                  alt="Previsualización de impresión" 
-                  style={{ 
-                    width: '100%',
-                    height: 'auto',
+                  src={uploadedImage} 
+                  alt="Preview" 
+                  className="preview-image"
+                  style={{
                     ...getFrameStyle(),
                     transition: 'all 0.3s ease'
                   }}
+                  onClick={() => document.getElementById('upload').click()}
                 />
-              </div>
+              ) : (
+                <label htmlFor="upload" className="upload-placeholder">
+                  <div className="upload-icon">📷</div>
+                  <div className="upload-text">Carga tu foto aquí</div>
+                  <div className="upload-subtext">Haz clic para seleccionar</div>
+                </label>
+              )}
             </div>
           </div>
 
-          {/* Columna de Opciones */}
-          <div className="panel-opciones">
-            <h2>Personaliza tu Impresión</h2>
-            
-            {/* Subida de Archivo */}
-            <div className="opcion">
-              <h3>Sube tu Foto</h3>
-              <input 
-                type="file" 
-                id="upload-image" 
-                accept="image/*" 
-                onChange={handleImageUpload}
-                className="file-input"
-              />
-              <label htmlFor="upload-image" className="file-label">
-                Seleccionar archivo
-              </label>
-            </div>
-            
-            {/* Opción de Tamaño */}
-            <div className="opcion">
-              <h3>Tamaño</h3>
-              <div className="controles">
+          {/* Controls */}
+          <div className="controls-section">
+            {/* Size */}
+            <div className="control-group">
+              <label className="control-label">Tamaño:</label>
+              <div className="size-buttons">
                 {Object.entries(sizeOptions).map(([key, option]) => (
                   <button 
                     key={key}
-                    className={size === key ? 'active' : ''} 
+                    className={`size-btn ${size === key ? 'active' : ''}`}
                     onClick={() => handleSizeChange(key)}
                   >
                     {option.name}
-                    <span className="price-tag">${option.basePrice.toLocaleString('es-CL')}</span>
+                    <span>{option.label}</span>
                   </button>
                 ))}
               </div>
             </div>
-            
-            {/* Opción de Marco */}
-            <div className="opcion">
-              <h3>Tipo de Marco</h3>
-              <div className="controles frame-options">
-                {Object.entries(frameOptions).map(([key, option]) => (
-                  <div key={key} className="frame-option">
-                    <button 
-                      className={frameType === key ? 'active' : ''} 
-                      onClick={() => handleFrameChange(key)}
-                    >
-                      {option.name}
-                      {option.price > 0 && (
-                        <span className="price-tag">+${option.price.toLocaleString('es-CL')}</span>
-                      )}
-                    </button>
-                    <p className="frame-description">{option.description}</p>
+
+            {/* Frame */}
+            <div className="control-group">
+              <label className="control-label">Marco:</label>
+              <div className="frame-selector">
+                <button 
+                  className="frame-menu-btn"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  {selectedFrame.name} (+${selectedFrame.price.toLocaleString('es-CL')})
+                  <span className="arrow">{isMenuOpen ? '▲' : '▼'}</span>
+                </button>
+                
+                {/* Descripción del marco seleccionado */}
+                <div className="frame-description-card">
+                  <p className="frame-description">{selectedFrame.description}</p>
+                </div>
+                
+                {isMenuOpen && (
+                  <div className="frame-dropdown">
+                    {marcosData.map((frame) => (
+                      <div 
+                        key={frame.id}
+                        className={`frame-option ${selectedFrame.id === frame.id ? 'selected' : ''}`}
+                        onClick={() => handleFrameChange(frame)}
+                      >
+                        <div className="frame-info">
+                          <span className="frame-name">{frame.name}</span>
+                          <span className="frame-desc">{frame.description}</span>
+                        </div>
+                        <span className="frame-price">${frame.price.toLocaleString('es-CL')}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
             </div>
 
-            {/* Resumen y Añadir al Carrito */}
-            <div className="resumen">
-              <div className="price-breakdown">
-                <p>Tamaño {sizeOptions[size].name}: <span>${sizeOptions[size].basePrice.toLocaleString('es-CL')}</span></p>
-                <p>{frameOptions[frameType].name}: <span>${frameOptions[frameType].price.toLocaleString('es-CL')}</span></p>
-                <hr />
-                <p className="total">Precio Total: <strong>${price.toLocaleString('es-CL')}</strong></p>
+            {/* Price Summary */}
+            <div className="price-summary">
+              <div className="price-row">
+                <span>Tamaño {sizeOptions[size].label}:</span>
+                <span>${sizeOptions[size].basePrice.toLocaleString('es-CL')}</span>
               </div>
-              <button type="button" className="btn btn-primary">Añadir al carrito</button>
+              <div className="price-row">
+                <span>{selectedFrame.name}:</span>
+                <span>+${selectedFrame.price.toLocaleString('es-CL')}</span>
+              </div>
+              <div className="price-total">
+                <span>Total:</span>
+                <span>${price.toLocaleString('es-CL')}</span>
+              </div>
+              <button className="add-cart-btn">🛒 Añadir al Carrito</button>
             </div>
-
           </div>
-        </section>
+        </div>
       </div>
-      
-      <CodigoPromocion />
-      <Footer />
     </>
   );
 };

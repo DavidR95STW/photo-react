@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Marco Elegante Dorado",
+    "price": 18000,
+    "description": "Marco ornamental dorado con detalles florales",
+    "category": "elegante",
+    "style": {
+      "border": "16px solid #FFD700",
+      "borderRadius": "10px",
+      "boxShadow": "inset 0 0 20px rgba(255,215,0,0.5), 0 6px 15px rgba(0,0,0,0.3)"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Marco Minimalista Negro",
+    "price": 10000,
+    "description": "Marco simple y elegante en negro mate",
+    "category": "moderno",
+    "style": {
+      "border": "8px solid #000000",
+      "borderRadius": "2px",
+      "boxShadow": "0 2px 8px rgba(0,0,0,0.2)"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Marco Rústico Madera",
+    "price": 12000,
+    "description": "Marco de madera natural con textura rústica",
+    "category": "rustico",
+    "style": {
+      "border": "14px solid #8B4513",
+      "borderRadius": "6px",
+      "boxShadow": "inset 0 0 15px rgba(139,69,19,0.4), 0 4px 10px rgba(0,0,0,0.25)"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Marco Plateado Moderno",
+    "price": 14000,
+    "description": "Marco metálico plateado con acabado brillante",
+    "category": "moderno",
+    "style": {
+      "border": "10px solid #C0C0C0",
+      "borderRadius": "4px",
+      "boxShadow": "0 3px 12px rgba(192,192,192,0.3)"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Marco Vintage Bronce",
+    "price": 16000,
+    "description": "Marco vintage con acabado en bronce envejecido",
+    "category": "vintage",
+    "style": {
+      "border": "18px solid #CD7F32",
+      "borderRadius": "12px",
+      "boxShadow": "inset 0 0 25px rgba(205,127,50,0.6), 0 8px 20px rgba(0,0,0,0.4)"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Marco Blanco Clásico",
+    "price": 9000,
+    "description": "Marco tradicional blanco perfecto para cualquier decoración",
+    "category": "clasico",
+    "style": {
+      "border": "12px solid #FFFFFF",
+      "borderRadius": "6px",
+      "boxShadow": "0 2px 10px rgba(0,0,0,0.15), inset 0 0 5px rgba(0,0,0,0.1)"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Marco Industrial Metal",
+    "price": 13000,
+    "description": "Marco estilo industrial con acabado metálico oscuro",
+    "category": "industrial",
+    "style": {
+      "border": "9px solid #36454F",
+      "borderRadius": "3px",
+      "boxShadow": "0 4px 8px rgba(54,69,79,0.4)"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Marco Pastel Rosa",
+    "price": 11000,
+    "description": "Marco suave en tono rosa pastel, ideal para espacios delicados",
+    "category": "pastel",
+    "style": {
+      "border": "11px solid #F8BBD9",
+      "borderRadius": "8px",
+      "boxShadow": "0 3px 10px rgba(248,187,217,0.3)"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Marco Azul Marino",
+    "price": 12500,
+    "description": "Marco elegante en azul marino profundo",
+    "category": "elegante",
+    "style": {
+      "border": "13px solid #000080",
+      "borderRadius": "7px",
+      "boxShadow": "0 4px 12px rgba(0,0,128,0.25)"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Marco Natural Bambú",
+    "price": 15500,
+    "description": "Marco ecológico de bambú natural",
+    "category": "natural",
+    "style": {
+      "border": "15px solid #D2B48C",
+      "borderRadius": "10px",
+      "boxShadow": "inset 0 0 10px rgba(210,180,140,0.4), 0 5px 15px rgba(0,0,0,0.2)"
+    }
+  }
+]
