@@ -97,20 +97,21 @@ const Header = () => {
           </button>
         </form>
 
-        <label htmlFor="loginToggle" className="login-btn" aria-hidden="false">
-          <svg className="icon icon-user" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 13c2.5 0 4.5-2 4.5-4.5S14.5 4 12 4 7.5 6 7.5 8.5 9.5 13 12 13z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M4 20c0-3.2 3.6-5.5 8-5.5s8 2.3 8 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </label>
-
         {user ? (
           <div className="user-info">
             <span className="user-initials">{user.iniciales}</span>
-            <Link to="/logout" className="nav-link">Cerrar sesión</Link>
+            <button onClick={() => {
+              localStorage.removeItem('loggedUser');
+              setUser(null);
+            }} className="logout-btn">Cerrar sesión</button>
           </div>
         ) : (
-          <Link to="/login" className="nav-link">Iniciar sesión</Link>
+          <label htmlFor="loginToggle" className="login-btn" aria-hidden="false">
+            <svg className="icon icon-user" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 13c2.5 0 4.5-2 4.5-4.5S14.5 4 12 4 7.5 6 7.5 8.5 9.5 13 12 13z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4 20c0-3.2 3.6-5.5 8-5.5s8 2.3 8 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </label>
         )}
 
         <button className="carrito" aria-label="Carrito">

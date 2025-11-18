@@ -59,17 +59,7 @@ const LoginModal = () => {
   return (
     <div className="login-registro" onClick={handleOverlayClick}>
       <div className="contenedor modal-large">
-        {/* Botón para cerrar el modal */}
-        <label
-          htmlFor="loginToggle"
-          className="cerrar-login"
-          onClick={() => {
-            const l = document.getElementById('loginToggle');
-            if (l) l.checked = false; // Solo cerrar el modal de login
-          }}
-        >
-          &times;
-        </label>
+        
 
         <div className="login-grid">
           <div

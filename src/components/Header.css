@@ -330,6 +330,58 @@
   .acciones { gap: 8px; }
 }
 
+/* Información del usuario */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #d32f2f;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--color-principal, #fff);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.login-btn {
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms ease, color 160ms ease;
+  color: var(--color-principal, #fff);
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  color: var(--color-acento, #ff6b6b);
+}
+
 /* Small polish */
 @media (min-width: 1200px) {
   .logo { font-size: 1.9rem; }
